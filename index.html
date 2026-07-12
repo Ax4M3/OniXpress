@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fiche titre — Générateur ONIX 3.0</title>
+<title>OniXpress — Générateur simplifié ONIX 3.0</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#E7E4D9;
-    --card:#F7F5EE;
-    --ink:#1E2A44;
-    --ink-soft:#3B4A66;
-    --accent-red:#A63A32;
-    --accent-gold:#8F6F35;
-    --line:#C9C3B0;
-    --text:#241F19;
-    --text-muted:#5B564C;
-    --ok:#3E6B4F;
+    --paper:#1A1A1A;
+    --card:#252525;
+    --ink:#E0E0E0;
+    --ink-soft:#A0A0A0;
+    --accent-red:#FF6B6B;
+    --accent-gold:#D4A017;
+    --line:#404040;
+    --text:#F0F0F0;
+    --text-muted:#B0B0B0;
+    --ok:#66BB6A;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
@@ -30,11 +30,29 @@
     padding:0 0 80px;
   }
   a{color:var(--ink);}
-
   header.top{
     max-width:1180px;
     margin:0 auto;
-    padding:56px 24px 28px;
+    padding:40px 24px 28px;
+    position: relative;
+  }
+  .top-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-bottom: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .top-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .top-nav a:hover {
+    color: var(--accent-gold);
   }
   .eyebrow{
     font-family:'IBM Plex Mono', monospace;
@@ -73,7 +91,6 @@
     border-radius:2px;
   }
   .disclaimer strong{color:var(--text);}
-
   main.layout{
     max-width:1180px;
     margin:36px auto 0;
@@ -86,8 +103,6 @@
   @media (max-width: 900px){
     main.layout{grid-template-columns:1fr;}
   }
-
-  /* ---- Form column ---- */
   .card{
     background:var(--card);
     border:1px solid var(--line);
@@ -112,8 +127,10 @@
   .field{margin-bottom:14px;}
   .field:last-child{margin-bottom:0;}
   .row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
-  @media (max-width:520px){.row{grid-template-columns:1fr;}}
-
+  .row-3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;}
+  @media (max-width:520px){
+    .row, .row-3{grid-template-columns:1fr;}
+  }
   label{
     display:block;
     font-size:.8rem;
@@ -121,23 +138,33 @@
     margin-bottom:5px;
   }
   label .req{color:var(--accent-red); margin-left:2px;}
-
   input[type=text], input[type=number], input[type=date], select, textarea{
     width:100%;
     font-family:'IBM Plex Sans', sans-serif;
     font-size:.92rem;
-    color:var(--text);
-    background:#fff;
+    color: var(--text);
+    background:#2a2a2a;
     border:1px solid var(--line);
     border-radius:2px;
     padding:8px 10px;
+    transition: border-color 0.2s;
+  }
+  input[type=text]:focus, select:focus, textarea:focus{
+    border-color: var(--accent-gold);
+    outline: none;
+  }
+  input::placeholder, textarea::placeholder {
+    color: var(--ink-soft) !important;
+    opacity: 1;
+  }
+  input[type=date]{
+    color-scheme: dark;
   }
   input:focus, select:focus, textarea:focus{
     outline:2px solid var(--ink-soft);
     outline-offset:1px;
   }
   textarea{resize:vertical; min-height:70px;}
-
   .isbn-status{
     font-family:'IBM Plex Mono', monospace;
     font-size:.75rem;
@@ -146,20 +173,18 @@
   .isbn-status.ok{color:var(--ok);}
   .isbn-status.bad{color:var(--accent-red);}
   .isbn-status.neutral{color:var(--text-muted);}
-
   .contributor-row{
     display:grid;
     grid-template-columns:1fr 1fr auto;
-    gap:10px;
-    align-items:end;
-    margin-bottom:10px;
+    gap:14px;
+    align-items:flex-end;
+    margin-bottom:14px;
   }
   @media (max-width:520px){.contributor-row{grid-template-columns:1fr;}}
   .contributor-row button{
     height:36px;
     align-self:end;
   }
-
   button{
     font-family:'IBM Plex Sans', sans-serif;
     cursor:pointer;
@@ -172,24 +197,35 @@
     padding:7px 12px;
     border-radius:2px;
   }
-  .btn-ghost:hover{background:rgba(30,42,68,0.06);}
+  .btn-ghost:hover{background:rgba(255,255,255,0.05);}
   .btn-remove{
     background:transparent;
     border:1px solid var(--line);
     color:var(--accent-red);
-    font-size:.78rem;
-    padding:7px 10px;
+    font-size:.82rem;
+    padding:8px 12px;
     border-radius:2px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
   }
-  .btn-remove:hover{border-color:var(--accent-red);}
-
+  .btn-remove:hover{
+    border-color:var(--accent-red);
+    background: rgba(255, 107, 107, 0.05);
+  }
+  #resetBtn {
+    color: var(--accent-red);
+    border-color: var(--line);
+  }
+  #resetBtn:hover {
+    border-color: var(--accent-red);
+    background: rgba(255, 107, 107, 0.05);
+  }
   .radio-group{display:flex; gap:16px; flex-wrap:wrap;}
   .radio-option{
     display:flex; align-items:center; gap:6px;
     font-size:.88rem; color:var(--text);
   }
-
-  /* ---- Proof panel (signature element) ---- */
   .proof-wrap{
     position:sticky;
     top:24px;
@@ -235,7 +271,6 @@
     color:var(--ok);
     border-color:var(--ok);
   }
-
   pre#xmlOutput{
     position:relative;
     z-index:1;
@@ -249,9 +284,8 @@
     margin:0 0 18px;
     color:var(--ink-soft);
   }
-  .tag{color:var(--ink);}
+  .tag{color:#8ad6f2;}
   .val{color:var(--accent-gold);}
-
   .checklist{
     position:relative;
     z-index:1;
@@ -275,7 +309,6 @@
     color:var(--accent-red);
   }
   .checklist li.done .mark{color:var(--ok);}
-
   .proof-actions{
     position:relative;
     z-index:1;
@@ -297,171 +330,237 @@
     background:#9a9a90;
     cursor:not-allowed;
   }
-
-  footer.note{
-    max-width:1180px;
-    margin:40px auto 0;
-    padding:0 24px;
-    font-size:.78rem;
-    color:var(--text-muted);
+footer.note {
+    max-width: 800px;
+    margin: 64px auto 0;
+    padding: 24px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  footer.note div {
+    margin-bottom: 8px;
+  }
+  footer.note div:last-of-type {
+    margin-bottom: 0;
+  }
+  footer.note .footer-links {
+    margin-top: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+  }
+  footer.note .footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  footer.note .footer-links a:hover {
+    color: var(--accent-gold);
+  }
+  @media (min-width: 512px) {
+    .contributor-row {
+      align-items: stretch !important;
+    }
+    .contributor-row .btn-remove {
+      margin-top: auto;
+      height: 37px;
+    }
   }
 </style>
 </head>
 <body>
-
-<header class="top">
-  <p class="eyebrow">Générateur ONIX 3.0 — v0</p>
-  <h1>Fiche titre</h1>
-  <p>Remplissez une fiche, obtenez un fichier ONIX 3.0 valide côté structure, prêt à envoyer à un distributeur. Tout reste dans votre navigateur — rien n'est envoyé sur un serveur.</p>
-</header>
-
-<div class="disclaimer">
-  <div class="box">
-    <strong>v0 — à lire avant usage professionnel :</strong> ce générateur produit un squelette ONIX 3.0 structurellement correct pour un cas simple (un produit, un marché). Il ne fait pas de validation XSD complète et la liste de classification ci-dessous est volontairement réduite. Vérifiez les codes auprès des listes officielles EDItEUR avant envoi à un distributeur.
-  </div>
-</div>
-
-<main class="layout">
-  <!-- FORM COLUMN -->
-  <form class="card" id="onixForm" autocomplete="off">
-
-    <fieldset>
-      <legend>Identification</legend>
-      <div class="field">
-        <label for="isbn">ISBN-13 <span class="req">*</span></label>
-        <input type="text" id="isbn" inputmode="numeric" placeholder="978XXXXXXXXXX" maxlength="17">
-        <div class="isbn-status neutral" id="isbnStatus">Saisissez les 13 chiffres, espaces ou tirets tolérés.</div>
-      </div>
-      <div class="field">
-        <label for="title">Titre <span class="req">*</span></label>
-        <input type="text" id="title" placeholder="Le titre du livre">
-      </div>
-      <div class="field">
-        <label for="subtitle">Sous-titre</label>
-        <input type="text" id="subtitle" placeholder="Facultatif">
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <legend>Contributeurs</legend>
-      <div id="contributors"></div>
-      <button type="button" class="btn-ghost" id="addContributor">+ Ajouter un contributeur</button>
-    </fieldset>
-
-    <fieldset>
-      <legend>Description</legend>
-      <div class="field">
-        <label for="summary">Résumé</label>
-        <textarea id="summary" placeholder="Quelques phrases pour présenter l'ouvrage"></textarea>
-      </div>
-      <div class="field">
-        <label for="keywords">Mots-clés</label>
-        <input type="text" id="keywords" placeholder="séparés par des virgules">
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <legend>Classification</legend>
-      <div class="field">
-        <label for="subject">Catégorie (Thema — liste simplifiée)</label>
-        <select id="subject">
-          <option value="">— Choisir —</option>
-          <option value="FBA">Fiction contemporaine</option>
-          <option value="FC">Fiction historique</option>
-          <option value="FL">Science-fiction</option>
-          <option value="FM">Fantasy</option>
-          <option value="FF">Polar / thriller</option>
-          <option value="YFB">Jeunesse — fiction</option>
-          <option value="DNF">Biographie</option>
-          <option value="WZS">Essai / société</option>
-          <option value="JH">Sciences humaines</option>
-          <option value="AB">Arts</option>
-        </select>
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <legend>Publication</legend>
-      <div class="row">
-        <div class="field">
-          <label for="publisher">Éditeur <span class="req">*</span></label>
-          <input type="text" id="publisher" placeholder="Nom de la maison">
-        </div>
-        <div class="field">
-          <label for="collection">Collection</label>
-          <input type="text" id="collection" placeholder="Facultatif">
-        </div>
-      </div>
-      <div class="row">
-        <div class="field">
-          <label for="pubdate">Date de parution <span class="req">*</span></label>
-          <input type="date" id="pubdate">
-        </div>
-        <div class="field">
-          <label>Format</label>
-          <select id="productForm">
-            <option value="BC">Broché</option>
-            <option value="BB">Relié</option>
-            <option value="ED">Numérique (ePub / PDF)</option>
-          </select>
-        </div>
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <legend>Prix &amp; disponibilité</legend>
-      <div class="row">
-        <div class="field">
-          <label for="price">Prix public TTC <span class="req">*</span></label>
-          <input type="number" id="price" min="0" step="0.01" placeholder="18.90">
-        </div>
-        <div class="field">
-          <label for="currency">Devise</label>
-          <select id="currency">
-            <option value="EUR">EUR</option>
-            <option value="CHF">CHF</option>
-            <option value="USD">USD</option>
-            <option value="GBP">GBP</option>
-            <option value="CAD">CAD</option>
-          </select>
-        </div>
-      </div>
-    </fieldset>
-  </form>
-
-  <!-- PROOF / PREVIEW COLUMN -->
-  <div class="proof-wrap">
-    <div class="proof">
-      <div class="proof-head">
-        <p class="eyebrow">Épreuve XML</p>
-        <span class="status-pill" id="statusPill">incomplet</span>
-      </div>
-
-      <ul class="checklist" id="checklist"></ul>
-
-      <pre id="xmlOutput"></pre>
-
-      <div class="proof-actions">
-        <button type="button" class="btn-primary" id="downloadBtn" disabled>Télécharger le .xml</button>
-        <button type="button" class="btn-ghost" id="resetBtn">Effacer la fiche</button>
-      </div>
+  <header class="top">
+    <nav class="top-nav">
+      <a href="about.html">C'est quoi l'ONIX ?</a>
+      <span> • </span>
+      <a href="project.html">Le Projet et le mode d'emploi</a>
+      <span> • </span>
+      <a href="about-me.html">A propos de l'auteur</a>
+    </nav>
+    <p class="eyebrow">OniXpress - Générateur ONIX 3.0 — v0</p>
+    <h1>Oni<em>Xpress</em> - Fiche titre</h1>
+    <p>Remplissez une fiche, obtenez un fichier ONIX 3.0 valide côté structure, prêt à envoyer à un distributeur. Tout reste dans votre navigateur — rien n'est envoyé sur un serveur.</p>
+  </header>
+  <div class="disclaimer">
+    <div class="box">
+      <strong>OniXpress v1.0.0 — à lire avant usage professionnel :</strong> ce générateur produit un squelette ONIX 3.0 structurellement correct pour un cas simple (un produit, un marché). Il ne fait pas de validation XSD complète et la liste de classification ci-dessous est volontairement réduite. Vérifiez les codes auprès des listes officielles EDItEUR avant envoi à un distributeur.
     </div>
   </div>
-</main>
+  <main class="layout">
+    <form class="card" id="onixForm" autocomplete="off">
+      <fieldset>
+        <legend>Identification</legend>
+        <div class="field">
+          <label for="isbn">ISBN-13 <span class="req">*</span></label>
+          <input type="text" id="isbn" inputmode="numeric" placeholder="978XXXXXXXXXX" maxlength="17">
+          <div class="isbn-status neutral" id="isbnStatus">Saisissez les 13 chiffres, espaces ou tirets tolérés.</div>
+        </div>
+        <div class="field">
+          <label for="title">Titre <span class="req">*</span></label>
+          <input type="text" id="title" placeholder="Le titre du livre">
+        </div>
+        <div class="field">
+          <label for="subtitle">Sous-titre</label>
+          <input type="text" id="subtitle" placeholder="Facultatif">
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Contributeurs</legend>
+        <div id="contributors"></div>
+        <button type="button" class="btn-ghost" id="addContributor">+ Ajouter un contributeur</button>
+      </fieldset>
+      <fieldset>
+        <legend>Description</legend>
+        <div class="field">
+          <label for="summary">Résumé</label>
+          <textarea id="summary" placeholder="Quelques phrases pour présenter l'ouvrage"></textarea>
+        </div>
+        <div class="field">
+          <label for="keywords">Mots-clés</label>
+          <input type="text" id="keywords" placeholder="séparés par des virgules">
+        </div>
+        <div class="field">
+          <label for="language">Langue du texte <span class="req">*</span></label>
+          <select id="language">
+            <option value="fre" selected>Français</option>
+            <option value="eng">Anglais</option>
+            <option value="spa">Espagnol</option>
+            <option value="ger">Allemand</option>
+            <option value="ita">Italien</option>
+          </select>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Classification</legend>
+        <div class="field">
+          <label for="subject">Catégorie (Thema — liste simplifiée)</label>
+          <select id="subject">
+            <option value="">— Choisir —</option>
+            <option value="FBA">Fiction contemporaine</option>
+            <option value="FC">Fiction historique</option>
+            <option value="FL">Science-fiction</option>
+            <option value="FM">Fantasy</option>
+            <option value="FF">Polar / thriller</option>
+            <option value="YFB">Jeunesse — fiction</option>
+            <option value="DNF">Biographie</option>
+            <option value="WZS">Essai / société</option>
+            <option value="JH">Sciences humaines</option>
+            <option value="AB">Arts</option>
+          </select>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Publication</legend>
+        <div class="row">
+          <div class="field">
+            <label for="publisher">Éditeur <span class="req">*</span></label>
+            <input type="text" id="publisher" placeholder="Nom de la maison">
+          </div>
+          <div class="field">
+            <label for="collection">Collection</label>
+            <input type="text" id="collection" placeholder="Facultatif">
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="pubdate">Date de parution <span class="req">*</span></label>
+            <input type="date" id="pubdate">
+          </div>
+          <div class="field">
+            <label for="productForm">Format</label>
+            <select id="productForm">
+              <option value="BC">Broché</option>
+              <option value="BB">Relié</option>
+              <option value="ED">Numérique (ePub / PDF)</option>
+            </select>
+          </div>
+        </div>
+        <div class="row-3 field" id="logisticsRow" style="margin-top:14px;">
+          <div class="field">
+            <label for="height">Hauteur (mm)</label>
+            <input type="number" id="height" placeholder="190">
+          </div>
+          <div class="field">
+            <label for="width">Largeur (mm)</label>
+            <input type="number" id="width" placeholder="125">
+          </div>
+          <div class="field">
+            <label for="weight">Poids (g)</label>
+            <input type="number" id="weight" placeholder="240">
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Prix &amp; disponibilité</legend>
+        <div class="row">
+          <div class="field">
+            <label for="price">Prix public TTC <span class="req">*</span></label>
+            <input type="number" id="price" min="0" step="0.01" placeholder="18.90">
+            <div id="priceCalculated" style="font-family:'IBM Plex Mono', monospace; font-size:.75rem; color:var(--text-muted); margin-top:5px;"></div>
+          </div>
+          <div class="field">
+            <label for="currency">Devise &amp; Région</label>
+            <select id="currency">
+              <option value="EUR-FR">EUR (TVA France)</option>
+              <option value="EUR-BE">EUR (TVA Belgique)</option>
+              <option value="CHF">CHF (TVA Suisse)</option>
+              <option value="USD">USD (Sans Taxe US)</option>
+              <option value="GBP">GBP (TVA Royaume-Uni)</option>
+              <option value="CAD">CAD (TPS Canada)</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="availability">Disponibilité commerciale</label>
+          <select id="availability">
+            <option value="20">Disponible (Mise en vente générale)</option>
+            <option value="10">À paraître (Précommande)</option>
+            <option value="40">Disponibilité incertaine / Réimprimer</option>
+            <option value="31">Épuisé</option>
+          </select>
+        </div>
+      </fieldset>
+    </form>
+    <div class="proof-wrap">
+      <div class="proof">
+        <div class="proof-head">
+          <p class="eyebrow">Épreuve XML</p>
+          <span class="status-pill" id="statusPill">incomplet</span>
+        </div>
+        <ul class="checklist" id="checklist"></ul>
+        <pre id="xmlOutput"></pre>
+        <div class="proof-actions">
+          <button type="button" class="btn-primary" id="downloadBtn" disabled>Télécharger le .xml</button>
+          <button type="button" class="btn-ghost" id="copyBtn" disabled>Copier le XML</button>
+          <button type="button" class="btn-ghost" id="resetBtn">Effacer la fiche</button>
+        </div>
+      </div>
+    </div>
+  </main>
 
-<footer class="note">
-  Fiche sauvegardée automatiquement dans votre navigateur (localStorage) — fermez l'onglet sans crainte, vous la retrouverez en revenant ici. Rien n'est transmis ailleurs.
-</footer>
-
+  <footer class="note">
+    <div>Fiche sauvegardée automatiquement dans votre navigateur (localStorage) — fermez l'onglet sans crainte, vous la retrouverez en revenant ici.</div>
+    <div><strong>Oni<em>Xpress</em></strong> est un outil open source, gratuit et respectueux de la vie privée. Aucune donnée saisie ne quitte jamais votre ordinateur.</div>
+    <div>Normes officielles basées sur les spécifications EDItEUR ONIX 3.0.</div>
+    <div class="footer-links">
+      <a href="pages/license.html" target="_blank">Licence GNU GPL 3.0</a>
+      <span> • </span>
+      <a href="https://github.com/Ax4M3/OnyXpress" target="_blank">Dépôt GitHub</a>
+      <span> • </span>
+      <a href="https://piaille.fr/@Axm" target="_blank">Mastodon</a>
+      <span> • </span>
+      <a href="https://liberapay.com/AxM3/donate" target="_blank">M'offrir du café</a>
+    </div>
+  </footer>
+  
 <script>
 (function(){
-  const STORAGE_KEY = 'onix-v0-fiche';
-
+  const STORAGE_KEY = 'onixpress-v0-fiche';
   const fields = ['isbn','title','subtitle','summary','keywords','subject',
-                   'publisher','collection','pubdate','productForm','price','currency'];
-
+                   'publisher','collection','pubdate','productForm','price','currency',
+                   'height', 'width', 'weight', 'availability', 'language'];
   let contributors = [{ name:'', role:'A01' }];
-
   const contributorRoles = [
     { code:'A01', label:'Auteur' },
     { code:'B06', label:'Traduit par' },
@@ -469,16 +568,16 @@
     { code:'A23', label:'Préface de' },
     { code:'A15', label:'Sous la direction de' }
   ];
-
   const els = {};
   fields.forEach(id => els[id] = document.getElementById(id));
+  const logisticsRow = document.getElementById('logisticsRow');
   const contributorsWrap = document.getElementById('contributors');
   const xmlOutput = document.getElementById('xmlOutput');
   const checklistEl = document.getElementById('checklist');
   const statusPill = document.getElementById('statusPill');
   const downloadBtn = document.getElementById('downloadBtn');
+  const copyBtn = document.getElementById('copyBtn');
   const isbnStatus = document.getElementById('isbnStatus');
-
   function escapeXml(str){
     return String(str || '')
       .replace(/&/g,'&amp;')
@@ -487,11 +586,9 @@
       .replace(/"/g,'&quot;')
       .replace(/'/g,'&apos;');
   }
-
   function cleanIsbn(v){
     return (v || '').replace(/[^0-9Xx]/g,'').toUpperCase();
   }
-
   function isbn13CheckDigit(isbn12){
     let sum = 0;
     for(let i=0;i<12;i++){
@@ -501,7 +598,6 @@
     const mod = sum % 10;
     return mod === 0 ? 0 : 10 - mod;
   }
-
   function validateIsbn(raw){
     const clean = cleanIsbn(raw);
     if(clean.length === 0){
@@ -517,23 +613,22 @@
     }
     return { state:'bad', msg:`✗ Clé de contrôle invalide (attendu ${expected}).` };
   }
-
   function renderContributors(){
     contributorsWrap.innerHTML = '';
     contributors.forEach((c, idx) => {
       const row = document.createElement('div');
       row.className = 'contributor-row';
-
       const nameField = document.createElement('div');
       nameField.className = 'field';
-      nameField.innerHTML = `<label>Nom${idx===0 ? ' <span class="req">*</span>' : ''}</label>`;
+      const label = document.createElement('label');
+      label.innerHTML = `Prénom/Nom ${idx===0 ? '<span class="req">*</span>' : ''}`;
+      nameField.appendChild(label);
       const nameInput = document.createElement('input');
       nameInput.type = 'text';
-      nameInput.placeholder = 'Prénom Nom';
+      nameInput.placeholder = 'Ex: Prénom Nom';
       nameInput.value = c.name;
       nameInput.addEventListener('input', e => { contributors[idx].name = e.target.value; update(); });
       nameField.appendChild(nameInput);
-
       const roleField = document.createElement('div');
       roleField.className = 'field';
       roleField.innerHTML = '<label>Rôle</label>';
@@ -546,10 +641,8 @@
       });
       roleSelect.addEventListener('change', e => { contributors[idx].role = e.target.value; update(); });
       roleField.appendChild(roleSelect);
-
       row.appendChild(nameField);
       row.appendChild(roleField);
-
       if(contributors.length > 1){
         const removeBtn = document.createElement('button');
         removeBtn.type = 'button';
@@ -562,49 +655,79 @@
         });
         row.appendChild(removeBtn);
       }
-
       contributorsWrap.appendChild(row);
     });
   }
-
   document.getElementById('addContributor').addEventListener('click', () => {
     contributors.push({ name:'', role:'A01' });
     renderContributors();
     update();
   });
-
   function ymd(dateStr){
     if(!dateStr) return '';
     return dateStr.replace(/-/g,'');
   }
-
+  function getTaxDetails(currencySelector, productForm) {
+    switch (currencySelector) {
+      case 'EUR-BE': return { rate: '6.0', region: 'BE', currency: 'EUR' };
+      case 'CHF': return { rate: '2.6', region: 'CH', currency: 'CHF' };
+      case 'CAD': return { rate: '5.0', region: 'CA', currency: 'CAD' };
+      case 'GBP': return { rate: '0.0', region: 'GB', currency: 'GBP' };
+      case 'USD': return { rate: '0.0', region: 'US', currency: 'USD' };
+      case 'EUR-FR':
+      default:
+        return { rate: productForm === 'ED' ? '4.0' : '5.5', region: 'FR', currency: 'EUR' };
+    }
+  }
   function buildXml(state){
     const now = new Date();
     const sentDateTime = now.toISOString().replace(/[-:]/g,'').split('.')[0];
     const recordRef = state.isbnClean ? `REF-${state.isbnClean}` : `REF-${Date.now()}`;
-    const contributorsXml = contributors
-      .filter(c => c.name.trim())
-      .map((c,i) => `      <Contributor>
+    const formattedPrice = parseFloat(state.price) ? parseFloat(state.price).toFixed(2) : '0.00';
+    const taxDetails = getTaxDetails(state.currency, state.productForm);
+    const publishingStatus = state.availability === '10' ? '02' : '04';
+    const contributorsXml = contributors.filter(c => c.name.trim()).length > 0
+      ? contributors
+          .filter(c => c.name.trim())
+          .map((c,i) => {
+            const trimmedName = c.name.trim();
+            const parts = trimmedName.split(' ');
+            const inverted = parts.length > 1 ? `${parts.slice(-1)[0]}, ${parts.slice(0, -1).join(' ')}` : trimmedName;
+            
+            return `      <Contributor>
         <SequenceNumber>${i+1}</SequenceNumber>
         <ContributorRole>${c.role}</ContributorRole>
-        <PersonName>${escapeXml(c.name)}</PersonName>
-      </Contributor>`).join('\n');
-
+        <InvertedName>${escapeXml(inverted)}</InvertedName>
+      </Contributor>`;
+          }).join('\n')
+      : `      <Contributor>
+        <SequenceNumber>1</SequenceNumber>
+        <ContributorRole>A01</ContributorRole>
+        <PersonName>Anonyme</PersonName>
+      </Contributor>`;
     const subjectXml = state.subject ? `      <Subject>
         <SubjectSchemeIdentifier>93</SubjectSchemeIdentifier>
         <SubjectCode>${escapeXml(state.subject)}</SubjectCode>
       </Subject>\n` : '';
-
     const keywordsXml = state.keywords.trim() ? `      <Subject>
         <SubjectSchemeIdentifier>20</SubjectSchemeIdentifier>
         <SubjectHeadingText>${escapeXml(state.keywords)}</SubjectHeadingText>
       </Subject>\n` : '';
-
+    const publishingDateXml = state.pubdate ? `      <PublishingDate>
+        <PublishingDateRole>01</PublishingDateRole>
+        <Date dateformat="00">${ymd(state.pubdate)}</Date>
+      </PublishingDate>` : '';
+    let measureXml = '';
+    if(state.productForm !== 'ED') {
+      if(state.height) measureXml += `      <Measure>\n        <MeasureType>01</MeasureType>\n        <Measurement>${state.height}</Measurement>\n        <MeasureUnitCode>mm</MeasureUnitCode>\n      </Measure>\n`;
+      if(state.width)  measureXml += `      <Measure>\n        <MeasureType>02</MeasureType>\n        <Measurement>${state.width}</Measurement>\n        <MeasureUnitCode>mm</MeasureUnitCode>\n      </Measure>\n`;
+      if(state.weight) measureXml += `      <Measure>\n        <MeasureType>08</MeasureType>\n        <Measurement>${state.weight}</Measurement>\n        <MeasureUnitCode>gr</MeasureUnitCode>\n      </Measure>\n`;
+    }
     return `<?xml version="1.0" encoding="UTF-8"?>
 <ONIXMessage release="3.0" xmlns="http://ns.editeur.org/onix/3.0/reference">
   <Header>
     <Sender>
-      <SenderName>${escapeXml(state.publisher) || '(éditeur non renseigné)'}</SenderName>
+      <SenderName>${escapeXml(state.publisher)}</SenderName>
     </Sender>
     <SentDateTime>${sentDateTime}</SentDateTime>
   </Header>
@@ -625,15 +748,20 @@
           <TitleText>${escapeXml(state.title)}</TitleText>${state.subtitle.trim() ? `\n          <Subtitle>${escapeXml(state.subtitle)}</Subtitle>` : ''}
         </TitleElement>
       </TitleDetail>
-${contributorsXml ? contributorsXml + '\n' : ''}${subjectXml}${keywordsXml}    </DescriptiveDetail>
+${contributorsXml ? contributorsXml + '\n' : ''}      <Language>
+        <LanguageRole>01</LanguageRole>
+        <LanguageCode>${state.language}</LanguageCode>
+      </Language>
+${subjectXml}${keywordsXml}${measureXml}    </DescriptiveDetail>
     <CollateralDetail>
       <TextContent>
         <TextType>03</TextType>
         <ContentAudience>00</ContentAudience>
-        <Text>${escapeXml(state.summary)}</Text>
+        <Text textformat="00">${escapeXml(state.summary)}</Text>
       </TextContent>
     </CollateralDetail>
     <PublishingDetail>
+      <PublishingStatus>${publishingStatus}</PublishingStatus>
       <Imprint>
         <ImprintName>${escapeXml(state.publisher)}</ImprintName>
       </Imprint>
@@ -650,10 +778,7 @@ ${contributorsXml ? contributorsXml + '\n' : ''}${subjectXml}${keywordsXml}    <
           </TitleElement>
         </TitleDetail>
       </Collection>` : ''}
-      <PublishingDate>
-        <PublishingDateRole>01</PublishingDateRole>
-        <Date dateformat="00">${ymd(state.pubdate)}</Date>
-      </PublishingDate>
+${publishingDateXml ? '\n' + publishingDateXml : ''}
     </PublishingDetail>
     <ProductSupply>
       <Market>
@@ -662,25 +787,32 @@ ${contributorsXml ? contributorsXml + '\n' : ''}${subjectXml}${keywordsXml}    <
         </Territory>
       </Market>
       <SupplyDetail>
-        <ProductAvailability>20</ProductAvailability>
+        <Supplier>
+          <SupplierRole>01</SupplierRole>
+          <SupplierName>${escapeXml(state.publisher)}</SupplierName>
+        </Supplier>
+        <ProductAvailability>${state.availability}</ProductAvailability>
         <Price>
           <PriceType>02</PriceType>
-          <PriceAmount>${state.price || '0.00'}</PriceAmount>
-          <CurrencyCode>${state.currency}</CurrencyCode>
+          <PriceAmount>${formattedPrice}</PriceAmount>
+          <Tax>
+            <TaxType>01</TaxType>
+            <TaxRatePercent>${taxDetails.rate}</TaxRatePercent>
+            <TaxRegionCode>${taxDetails.region}</TaxRegionCode>
+          </Tax>
+          <CurrencyCode>${taxDetails.currency}</CurrencyCode>
         </Price>
       </SupplyDetail>
     </ProductSupply>
   </Product>
 </ONIXMessage>`;
   }
- 
   function highlightXml(xml){
     return escapeXml(xml)
       .replace(/&lt;(\/?[A-Za-z][A-Za-z0-9]*)((?:\s+[a-zA-Z]+="[^"]*")*)\s*(\/?)&gt;/g,
         (m, tag, attrs, selfClose) => `&lt;<span class="tag">${tag}</span>${attrs}${selfClose}&gt;`)
       .replace(/(&lt;[^&]+&gt;)([^&<]+)(?=&lt;)/g, (m, tag, text) => `${tag}<span class="val">${text}</span>`);
   }
- 
   function getState(){
     const isbnCheck = validateIsbn(els.isbn.value);
     return {
@@ -697,10 +829,14 @@ ${contributorsXml ? contributorsXml + '\n' : ''}${subjectXml}${keywordsXml}    <
       pubdate: els.pubdate.value,
       productForm: els.productForm.value,
       price: els.price.value,
-      currency: els.currency.value
+      currency: els.currency.value,
+      height: els.height.value,
+      width: els.width.value,
+      weight: els.weight.value,
+      availability: els.availability.value,
+      language: els.language.value
     };
   }
- 
   function requiredChecks(state){
     return [
       { label:'ISBN-13 valide', ok: state.isbnCheck.state === 'ok' },
@@ -711,32 +847,44 @@ ${contributorsXml ? contributorsXml + '\n' : ''}${subjectXml}${keywordsXml}    <
       { label:'Prix renseigné', ok: parseFloat(state.price) > 0 }
     ];
   }
- 
   function update(){
     const state = getState();
- 
+    if(document.activeElement !== els.isbn && state.isbnClean) {
+      els.isbn.value = state.isbnClean;
+    }
+    logisticsRow.style.display = state.productForm === 'ED' ? 'none' : 'grid';
     isbnStatus.textContent = state.isbnCheck.msg;
     isbnStatus.className = 'isbn-status ' + state.isbnCheck.state;
- 
     const checks = requiredChecks(state);
     checklistEl.innerHTML = checks.map(c =>
       `<li class="${c.ok ? 'done' : ''}"><span class="mark">${c.ok ? '✓' : '○'}</span>${c.label}</li>`
     ).join('');
- 
+    const priceTTC = parseFloat(state.price);
+    const priceCalcEl = document.getElementById('priceCalculated');
+    if (!isNaN(priceTTC) && priceTTC > 0) {
+      const taxDetails = getTaxDetails(state.currency, state.productForm);
+      const tvaFactor = parseFloat(taxDetails.rate) / 100;
+      const priceHT = priceTTC / (1 + tvaFactor);
+      if (tvaFactor > 0) {
+        priceCalcEl.textContent = `Soit ${priceHT.toFixed(2)} ${taxDetails.currency} HT (TVA ${taxDetails.rate}% [${taxDetails.region}])`;
+      } else {
+        priceCalcEl.textContent = `Soit ${priceTTC.toFixed(2)} ${taxDetails.currency} (Exempté/Détaxé [${taxDetails.region}])`;
+      }
+    } else {
+      priceCalcEl.textContent = '';
+    }
     const allOk = checks.every(c => c.ok);
     statusPill.textContent = allOk ? 'prêt à exporter' : 'incomplet';
     statusPill.className = 'status-pill' + (allOk ? ' ready' : '');
     downloadBtn.disabled = !allOk;
- 
+    copyBtn.disabled = !allOk;
     const xml = buildXml(state);
     xmlOutput.innerHTML = highlightXml(xml);
- 
     localStorage.setItem(STORAGE_KEY, JSON.stringify({
       values: fields.reduce((acc,id) => (acc[id] = els[id].value, acc), {}),
       contributors
     }));
   }
- 
   function restore(){
     try {
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
@@ -747,18 +895,18 @@ ${contributorsXml ? contributorsXml + '\n' : ''}${subjectXml}${keywordsXml}    <
       }
     } catch(e){ /* fiche corrompue, on repart de zéro */ }
   }
- 
   document.getElementById('resetBtn').addEventListener('click', () => {
     if(!confirm('Effacer la fiche en cours ?')) return;
     localStorage.removeItem(STORAGE_KEY);
     fields.forEach(id => els[id].value = '');
     els.productForm.value = 'BC';
-    els.currency.value = 'EUR';
+    els.currency.value = 'EUR-FR';
+    els.availability.value = '20';
+    els.language.value = 'fre';
     contributors = [{ name:'', role:'A01' }];
     renderContributors();
     update();
   });
- 
   downloadBtn.addEventListener('click', () => {
     const state = getState();
     const xml = buildXml(state);
@@ -773,15 +921,37 @@ ${contributorsXml ? contributorsXml + '\n' : ''}${subjectXml}${keywordsXml}    <
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   });
- 
-  els.isbn.addEventListener('input', update);
-  fields.filter(f => f !== 'isbn').forEach(id => els[id].addEventListener('input', update));
- 
+  copyBtn.addEventListener('click', () => {
+    const state = getState();
+    const xml = buildXml(state);
+    navigator.clipboard.writeText(xml).then(() => {
+      const originalText = copyBtn.textContent;
+      copyBtn.textContent = '✓ Copié !';
+      copyBtn.style.borderColor = 'var(--ok)';
+      copyBtn.style.color = 'var(--ok)';
+      setTimeout(() => {
+        copyBtn.textContent = originalText;
+        copyBtn.style.borderColor = 'var(--ink-soft)';
+        copyBtn.style.color = 'var(--ink-soft)';
+      }, 2000);
+    }).catch(err => {
+      console.error("Erreur lors de la copie : ", err);
+    });
+  });
+  els.isbn.addEventListener('input', (e) => {
+    e.target.value = e.target.value.replace(/[^0-9\s-Xx]/g, '');
+  });
+  fields.forEach(id => {
+    const el = els[id];
+    if (el) {
+      const eventType = (el.tagName === 'SELECT' || el.type === 'date') ? 'change' : 'input';
+      el.addEventListener(eventType, update);
+    }
+  });
   restore();
   renderContributors();
   update();
 })();
 </script>
- 
 </body>
 </html>

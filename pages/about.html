@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>À propos d'ONIX 3.0 — Guide OniXpress</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#1A1A1A;
+    --card:#252525;
+    --ink:#E0E0E0;
+    --ink-soft:#A0A0A0;
+    --accent-red:#FF6B6B;
+    --accent-gold:#D4A017;
+    --line:#404040;
+    --text:#F0F0F0;
+    --text-muted:#B0B0B0;
+    --ok:#66BB6A;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--text);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    padding:0 0 80px;
+  }
+  a{
+    color:var(--accent-gold);
+    text-decoration:none;
+    transition:color 0.2s;
+  }
+  a:hover{
+    color:var(--ink);
+    text-decoration:underline;
+  }
+
+  header.top{
+    max-width:800px;
+    margin:0 auto;
+    padding:56px 24px 28px;
+  }
+    .top-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-bottom: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .top-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .top-nav a:hover {
+    color: var(--accent-gold);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    font-size:.72rem;
+    color:var(--accent-gold);
+    margin:0 0 10px;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:2.5rem;
+    margin:0 0 10px;
+    color:var(--ink);
+    letter-spacing:-.01em;
+  }
+  h2{
+    font-family:'Fraunces', serif;
+    font-size:1.6rem;
+    font-weight:500;
+    color:var(--ink);
+    margin:40px 0 16px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:8px;
+  }
+  h3{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:1.15rem;
+    font-weight:600;
+    color:var(--accent-gold);
+    margin:24px 0 12px;
+  }
+
+  main.content{
+    max-width:800px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  p{
+    color:var(--text);
+    margin:0 0 16px;
+  }
+  
+  ul, ol{
+    margin:0 0 24px;
+    padding-left:24px;
+    color:var(--text);
+  }
+  li{
+    margin-bottom:8px;
+  }
+
+  blockquote {
+    border-left:3px solid var(--accent-gold);
+    background:var(--card);
+    margin:24px 0;
+    padding:16px 20px;
+    font-style:italic;
+    color:var(--text-muted);
+    border-radius:2px;
+  }
+
+  .grid-info {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin:32px 0;
+  }
+  @media(max-width:600px){
+    .grid-info {grid-template-columns:1fr;}
+  }
+
+  .info-box {
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:20px;
+    border-radius:4px;
+  }
+  .info-box h3 {
+    margin-top:0;
+  }
+
+  table {
+    width:100%;
+    border-collapse:collapse;
+    margin:24px 0;
+    font-size:.9rem;
+  }
+  th, td {
+    padding:10px 12px;
+    text-align:left;
+    border-bottom:1px solid var(--line);
+  }
+  th {
+    font-family:'IBM Plex Mono', monospace;
+    text-transform:uppercase;
+    font-size:.75rem;
+    color:var(--ink-soft);
+    background:rgba(255,255,255,0.02);
+  }
+  td.code {
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--accent-red);
+  }
+
+  .btn-back {
+    display:inline-block;
+    font-family:'IBM Plex Sans', sans-serif;
+    background:var(--card);
+    border:1px solid var(--line);
+    color:var(--ink);
+    padding:10px 20px;
+    border-radius:3px;
+    font-size:.88rem;
+    font-weight:500;
+    margin-bottom:20px;
+  }
+  .btn-back:hover {
+    background:rgba(255,255,255,0.05);
+    border-color:var(--ink-soft);
+  }
+footer.note {
+    max-width: 800px;
+    margin: 64px auto 0;
+    padding: 24px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  footer.note div {
+    margin-bottom: 8px;
+  }
+  footer.note div:last-of-type {
+    margin-bottom: 0;
+  }
+  footer.note .footer-links {
+    margin-top: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+  }
+  footer.note .footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  footer.note .footer-links a:hover {
+    color: var(--accent-gold);
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+    <nav class="top-nav">
+      <a href="project.html">Le Projet et le mode d'emploi</a>
+      <span> • </span>
+      <a href="about-me.html">A propos de l'auteur</a>
+    </nav>
+  <a href="index.html" class="btn-back">← Retour</a>
+  <p class="eyebrow">Comprendre les métadonnées du livre</p>
+  <h1>Qu'est-ce que le format ONIX 3.0 ?</h1>
+</header>
+
+<main class="content">
+  <p>Si vous vous lancez dans l'édition ou l'auto-édition professionnelle, vous rencontrerez inévitablement le terme <strong>ONIX</strong>. Loin d'être un simple caprice technique, c'est le langage universel qui permet à votre livre d'exister en librairie.</p>
+
+  <blockquote>
+    « ONIX est au livre ce que le code-barres est à la grande distribution : une carte d'identité numérique standardisée, indispensable pour automatiser les ventes. »
+  </blockquote>
+
+  <h2>A quoi ça sert ?</h2>
+  <p>Lorsqu'un livre sort, les libraires, les plateformes en ligne (Fnac, Amazon) et les grandes bases de données (Dilicom, Electre, Decitre) ont besoin de connaître ses informations (le prix, le format, le résumé, l'auteur). C'est ce qu'on appelle les <strong>métadonnées</strong>.</p>
+  
+  <div class="grid-info">
+    <div class="info-box">
+      <h3>Sans ONIX (L'enfer des fichiers)</h3>
+      <p>Vous devriez remplir un fichier Excel différent pour Dilicom, un autre pour Amazon, envoyer un mail à la Fnac, et copier-coller manuellement votre résumé partout. Risque d'erreurs maximal.</p>
+    </div>
+    <div class="info-box">
+      <h3>Avec ONIX (La synchronisation)</h3>
+      <p>Vous générez <strong>un seul fichier unique au format .xml</strong>. Vous l'envoyez à votre distributeur. En quelques heures, toutes les bases de données du monde francophone se mettent à jour fidèlement.</p>
+    </div>
+  </div>
+
+  <h2>Pourquoi la version 3.0 ?</h2>
+  <p>La norme ONIX est gérée à l'échelle internationale par l'organisme <strong>EDItEUR</strong>. La version 2.1 est officiellement obsolète depuis de nombreuses années. La version <strong>ONIX 3.0</strong> est aujourd'hui la seule et unique norme acceptée pour les nouveautés, car elle gère nativement et de façon ultra-précise :</p>
+  <ul>
+    <li>Les subtilités du livre numérique (formats ePub, PDF, protections DRM).</li>
+    <li>Les marchés multiples (prix différents selon les pays).</li>
+    <li>La classification internationale <strong>Thema</strong> (qui remplace progressivement la vieille classification CLIL).</li>
+  </ul>
+
+  <h2>Comprendre les codes utilisés dans OniXpress</h2>
+  <p>Pour qu'un ordinateur comprenne votre fichier sans ambiguïté linguistique, ONIX n'écrit pas "Livre Broché" ou "Disponible", il utilise des <strong>listes de codes codifiées</strong> (Codelists). Voici les équivalences de ce que le générateur OniXpress configure en arrière-plan :</p>
+
+  <h3>Formats de produit (Liste 150)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Code ONIX</th>
+        <th>Signification</th>
+        <th>Description technique</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="code">BC</td>
+        <td>Broché</td>
+        <td>Couverture souple ordinaire (Paperback).</td>
+      </tr>
+      <tr>
+        <td class="code">BB</td>
+        <td>Relié</td>
+        <td>Couverture rigide, cartonné (Hardback).</td>
+      </tr>
+      <tr>
+        <td class="code">ED</td>
+        <td>Livre numérique</td>
+        <td>Fichier dématérialisé (ePub, PDF ou application).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Statuts de disponibilité (Liste 65)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Code ONIX</th>
+        <th>Disponibilité commerciale</th>
+        <th>Usage type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="code">10</td>
+        <td>À paraître</td>
+        <td>Le livre est annoncé, les libraires peuvent enregistrer des précommandes.</td>
+      </tr>
+      <tr>
+        <td class="code">20</td>
+        <td>Disponible</td>
+        <td>Le livre est en stock chez le distributeur et livrable immédiatement.</td>
+      </tr>
+      <tr>
+        <td class="code">31</td>
+        <td>Épuisé</td>
+        <td>Le livre ne sera plus réimprimé, la fiche est conservée pour historique.</td>
+      </tr>
+      <tr>
+        <td class="code">40</td>
+        <td>Disponibilité incertaine</td>
+        <td>En attente de réimpression ou rupture temporaire.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Comment utiliser votre fichier exporté ?</h2>
+  <ol>
+    <li>Complétez l'intégralité des champs obligatoires marqués d'un astérisque rouge (<span style="color:var(--accent-red);">*</span>) sur le formulaire.</li>
+    <li>Vérifiez visuellement l'épreuve à droite de votre écran.</li>
+    <li>Cliquez sur <strong>"Télécharger le .xml"</strong>.</li>
+    <li>Déposez ou envoyez ce fichier sur l'espace professionnel de votre distributeur (Dilicom, plateformes d'auto-édition, ou outil de gestion interne).</li>
+  </ol>
+</main>
+
+<footer class="note">
+    <div><strong>Oni<em>Xpress</em></strong> est un outil open source, gratuit et respectueux de la vie privée. Aucune donnée saisie ne quitte jamais votre ordinateur.</div>
+    <div>Normes officielles basées sur les spécifications EDItEUR ONIX 3.0.</div>
+    <div class="footer-links">
+      <a href="pages/license.html" target="_blank">Licence GNU GPL 3.0</a>
+      <span> • </span>
+      <a href="https://github.com/Ax4M3/OnyXpress" target="_blank">Dépôt GitHub</a>
+      <span> • </span>
+      <a href="https://piaille.fr/@Axm" target="_blank">Mastodon</a>
+      <span> • </span>
+      <a href="https://liberapay.com/AxM3/donate" target="_blank">M'offrir du café</a>
+    </div>
+</footer>
+
+</body>
+</html>

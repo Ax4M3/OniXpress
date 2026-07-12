@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Licence — OniXpress</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#1A1A1A;
+    --card:#252525;
+    --ink:#E0E0E0;
+    --ink-soft:#A0A0A0;
+    --accent-red:#FF6B6B;
+    --accent-gold:#D4A017;
+    --line:#404040;
+    --text:#F0F0F0;
+    --text-muted:#B0B0B0;
+  }
+  *{box-sizing:border-box;}
+  body{
+    background:var(--paper);
+    color:var(--text);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    padding:0 0 80px;
+    margin:0;
+  }
+  a{
+    color:var(--accent-gold);
+    text-decoration:none;
+    transition:color 0.2s;
+  }
+  a:hover{
+    color:var(--ink);
+    text-decoration:underline;
+  }
+  header.top{
+    max-width:800px;
+    margin:0 auto;
+    padding:56px 24px 28px;
+  }
+    .top-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-bottom: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .top-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .top-nav a:hover {
+    color: var(--accent-gold);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    font-size:.72rem;
+    color:var(--accent-gold);
+    margin:0 0 10px;
+  }
+  .btn-back {
+    display:inline-block;
+    font-family:'IBM Plex Sans', sans-serif;
+    background:var(--card);
+    border:1px solid var(--line);
+    color:var(--ink);
+    padding:10px 20px;
+    border-radius:3px;
+    font-size:.88rem;
+    font-weight:500;
+    margin-bottom:20px;
+  }
+  .btn-back:hover {
+    background:rgba(255,255,255,0.05);
+    border-color:var(--ink-soft);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    font-size:.72rem;
+    color:var(--accent-gold);
+    margin:0 0 10px;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:2.5rem;
+    margin:0 0 10px;
+    color:var(--ink);
+  }
+  .subtitle{
+    color:var(--text-muted);
+    font-size:1.05rem;
+    margin:0 0 24px 0;
+  }
+  main.content{
+    max-width:800px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  h2{
+    font-family:'Fraunces', serif;
+    font-size:1.6rem;
+    font-weight:500;
+    color:var(--ink);
+    margin:40px 0 16px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:8px;
+  }
+  h3{
+    font-family:'Fraunces', serif;
+    font-size:1.2rem;
+    font-weight:500;
+    color:var(--ink);
+    margin:28px 0 12px;
+  }
+  p{
+    margin:0 0 16px 0;
+    color:var(--text-muted);
+  }
+  strong{
+    color:var(--ink);
+  }
+  ol{
+    margin:0 0 24px 0;
+    padding-left:24px;
+    color:var(--text-muted);
+  }
+  li{
+    margin-bottom:8px;
+  }
+  pre{
+    margin:24px 0;
+    padding:16px;
+    overflow-x:auto;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    line-height:1.5;
+    color:var(--accent-gold);
+    background:var(--card);
+    border-radius:3px;
+    border:1px solid var(--line);
+  }
+  .links-list {
+    list-style: none;
+    padding: 0;
+    margin: 32px 0;
+  }
+  .links-list li {
+    margin-bottom: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+  }
+footer.note {
+    max-width: 800px;
+    margin: 64px auto 0;
+    padding: 24px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  footer.note div {
+    margin-bottom: 8px;
+  }
+  footer.note div:last-of-type {
+    margin-bottom: 0;
+  }
+  footer.note .footer-links {
+    margin-top: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+  }
+  footer.note .footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  footer.note .footer-links a:hover {
+    color: var(--accent-gold);
+  }
+  @media(max-width:600px){
+    h1{ font-size: 2rem; }
+    h2{ font-size: 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+    <nav class="top-nav">
+      <a href="about.html">C'est quoi l'ONIX ?</a>
+      <span> • </span>
+      <a href="project.html">Le Projet et le mode d'emploi</a>
+      <span> • </span>
+      <a href="about-me.html">A propos de l'auteur</a>
+    </nav>
+  <a href="index.html" class="btn-back">← Retour</a>
+  <p class="eyebrow">Licence &amp; Open Source</p>
+  <h1>Oni<em>Xpress</em> — GNU GPL 3.0</h1>
+</header>
+
+<main class="content">
+  <p class="subtitle">Ce projet est un logiciel libre, distribué en toute transparence sous les termes de la Licence Publique Générale GNU version 3.0.</p>
+
+  <h2>Licence Publique Générale GNU</h2>
+  <p>Version 3, 29 juin 2007</p>
+  <p>
+    Copyright © 2007 Free Software Foundation, Inc. (<a href="https://fsf.org/" target="_blank">fsf.org</a>)<br>
+    Tout le monde est autorisé à copier et distribuer des copies exactes de ce document de licence, mais sa modification est interdite.
+  </p>
+
+  <h2>Préambule</h2>
+  <p>La Licence Publique Générale GNU est une licence libre <em>copyleft</em> pour les logiciels et autres types d'œuvres.</p>
+  <p>Les licences pour la plupart des logiciels sont conçues pour priver l'utilisateur de sa liberté de partager et de modifier l'œuvre. Par contraste, la Licence Publique Générale GNU est conçue pour garantir la liberté de partager et de modifier toutes les versions d'un programme informatique — pour s'assurer qu'il reste un logiciel libre pour tous ses utilisateurs.</p>
+  <p>Lorsque nous parlons de logiciel libre, nous faisons référence à la liberté, pas au prix. Nos Licences Publiques Générales sont conçues pour vous donner la liberté de distribuer des copies de logiciels libres (et de facturer ce service si vous le souhaitez), de recevoir le code source ou de le récupérer facilement, de modifier le logiciel ou d'utiliser des parties de celui-ci dans de nouveaux programmes libres.</p>
+  <p>Pour protéger vos droits, nous devons éviter que quiconque vous refuse ces libertés ou vous demande d'y renoncer. Par conséquent, vous avez certaines responsabilités si vous distribuez des copies du logiciel, ou si vous le modifiez : vous devez accorder aux autres les mêmes droits que ceux que vous avez reçus.</p>
+
+  <h2>Termes et Conditions</h2>
+
+  <h3>0. Définitions</h3>
+  <p>« Cette Licence » fait référence à la version 3 de la Licence Publique Générale GNU.</p>
+  <p>« Copyright » signifie aussi les lois sur le droit d'auteur qui s'appliquent à d'autres types d'œuvres, comme les masques de semi-conducteurs.</p>
+  <p>« Le Programme » fait référence à tout programme ou œuvre couverte par cette Licence. « Une œuvre basée sur le Programme » désigne soit le Programme, soit une œuvre dérivée. « Propager » une œuvre signifie toute action qui nécessite une permission explicite sous la loi sur le droit d'auteur.</p>
+
+  <h3>1. Code source</h3>
+  <p>Le « code source » est la forme préférée pour faire des modifications. Le « code objet » désigne toute forme autre.</p>
+
+  <h3>2. Copie textuelle</h3>
+  <p>Vous pouvez copier et distribuer le code source du Programme tel que reçu, sur n'importe quel support, à condition de conserver de manière visible tous les avis de copyright, cette Licence, et l'absence totale de garantie.</p>
+
+  <h3>3. Copie en code binaire</h3>
+  <p>Vous pouvez copier et distribuer le Programme sous forme de code objet selon les termes des sections 1 et 2, à condition de fournir aussi l'une des options suivantes :</p>
+  <ol type="a">
+    <li>Accompagner l'œuvre du code source complet correspondant ; ou</li>
+    <li>Accompagner l'œuvre d'une offre écrite de fournir le code source ; ou</li>
+    <li>Accompagner l'œuvre des informations reçues concernant l'offre du code source.</li>
+  </ol>
+
+  <h3>4. Limitations</h3>
+  <p>Vous ne pouvez pas copier, modifier, sous-licencier ou distribuer l'œuvre sauf selon les termes explicites de cette Licence. Toute autre tentative est nulle et fait cesser immédiatement vos droits.</p>
+
+  <h3>5. Acceptation automatique</h3>
+  <p>Vous n'êtes pas obligé d'accepter cette Licence pour recevoir ou exécuter une copie du Programme. Cependant, toute autre activité que copier ou distribuer est formellement interdite sans l'acceptation explicite de cette Licence.</p>
+
+  <h3>6. Collections</h3>
+  <p>Vous pouvez créer une collection avec le Programme et d'autres œuvres, et distribuer le tout sous vos propres termes, à condition que cette Licence s'applique au Programme dans la collection.</p>
+
+  <h3>7. Agrégation</h3>
+  <p>Une compilation du Programme avec d'autres œuvres séparées et indépendantes ne tombe pas sous le champ d'application de cette Licence.</p>
+
+  <h3>10. Licence automatique aux destinataires</h3>
+  <p>Chaque fois que vous communiquez une œuvre couverte, le destinataire reçoit automatiquement une licence des concédants originaux pour exécuter, modifier et propager cette œuvre.</p>
+
+  <h3>11. Brevets</h3>
+  <p>Chaque contributeur vous accorde une licence de brevet non exclusive, mondiale et sans redevance sur ses revendications de brevet essentielles pour utiliser, vendre, importer et distribuer son œuvre.</p>
+
+  <h3>12. Pas de renonciation à la liberté des autres</h3>
+  <p>Si des conditions vous sont imposées qui contredisent cette Licence, elles ne vous dispensent pas de la respecter. Vous ne pouvez pas communiquer l'œuvre si vous ne pouvez pas satisfaire simultanément vos obligations réglementaires et contractuelles.</p>
+
+  <h3>13. Interprétation</h3>
+  <p>Si la renonciation à la garantie et la limitation de responsabilité ne peuvent pas être appliquées localement, les tribunaux devront appliquer le droit local qui s'en approche le plus.</p>
+
+  <h2>Comment appliquer ces termes à vos programmes</h2>
+  <p>Pour appliquer ces termes à votre projet, ajoutez cet avis dans l'en-tête de chaque fichier source :</p>
+
+<pre>Copyright (C) [année] [nom de l'auteur]
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.</pre>
+
+  <p>Cette Licence ne permet pas d'incorporer votre code dans des programmes propriétaires. Si votre projet est une bibliothèque, vous pourriez préférer la <em>Licence Publique Générale Limitée GNU</em>.</p>
+  <h2>Ressources</h2>
+  <ul class="links-list">
+    <li>Texte officiel complet : <a href="https://www.gnu.org/licenses/gpl-3.0.fr.html" target="_blank">gnu.org (Version française)</a></li>
+  </ul>
+</main>
+
+<footer class="note">
+    <div><strong>Oni<em>Xpress</em></strong> est un outil open source, gratuit et respectueux de la vie privée. Aucune donnée saisie ne quitte jamais votre ordinateur.</div>
+    <div>Normes officielles basées sur les spécifications EDItEUR ONIX 3.0.</div>
+    <div class="footer-links">
+      <a href="pages/license.html" target="_blank">Licence GNU GPL 3.0</a>
+      <span> • </span>
+      <a href="https://github.com/Ax4M3/OnyXpress" target="_blank">Dépôt GitHub</a>
+      <span> • </span>
+      <a href="https://piaille.fr/@Axm" target="_blank">Mastodon</a>
+      <span> • </span>
+      <a href="https://liberapay.com/AxM3/donate" target="_blank">M'offrir du café</a>
+    </div>
+</footer>
+
+</body>
+</html>
