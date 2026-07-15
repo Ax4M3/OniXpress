@@ -1,25 +1,25 @@
-# OniXpress — Générateur ONIX 3.0 simplifié
+# Errata — Générateur ONIX 3.0 simplifié
 
 <div align="center">
-  <img src="assets/logo.svg" width="80" alt="Logo OniXpress" />
+  <img src="assets/logo.svg" width="80" alt="Logo Errata" />
   <p align="center">
     <strong>Un code au service de la création culturelle et de la bibliodiversité.</strong>
   </p>
 
   ![Langue](https://img.shields.io/badge/Langue-Français-blue.svg?style=flat-square)
   ![Licence](https://img.shields.io/badge/Licence-GPL--3.0-red?style=flat-square)
-  [![GitHub Pages](https://img.shields.io/badge/Deployment-GitHub_Pages-green.svg)](https://ax4m3.github.io/OniXpress/)
-  ![GitHub Issues](https://img.shields.io/github/issues/Ax4M3/OniXpress?style=flat-square)
+  [![GitHub Pages](https://img.shields.io/badge/Deployment-GitHub_Pages-green.svg)](https://ax4m3.github.io/Errata/)
+  ![GitHub Issues](https://img.shields.io/github/issues/Ax4M3/Errata?style=flat-square)
   ![Version](https://img.shields.io/badge/Version-v1.6.2-gold?style=flat-square)
   ![Contributions](https://img.shields.io/badge/contributions-welcome-brightgreen?style=flat-square)
 </div>
 
 ---
-**OniXpress** est un outil en ligne léger et open-source conçu pour aider les éditeurs indépendants et auto-édités à générer facilement leurs fiches de métadonnées de livres au format standard international **ONIX 3.0**. 
+**Errata** est un outil en ligne léger et open-source conçu pour aider les éditeurs indépendants et auto-édités à générer facilement leurs fiches de métadonnées de livres au format standard international **ONIX 3.0**. 
 
 Il élimine la complexité de la manipulation directe des fichiers XML structurés en proposant un formulaire de saisie guidé.
 
-**[Tester l'outil en direct sur GitHub Pages](https://ax4m3.github.io/OniXpress/)**
+**[Tester l'outil en direct sur GitHub Pages](https://ax4m3.github.io/Errata/)**
 
 ## Fonctionnalités clés
 
@@ -35,7 +35,7 @@ Il élimine la complexité de la manipulation directe des fichiers XML structur�
 
 ## Comment l'utiliser ?
 
-1. Rendez-vous sur [OniXpress en ligne](https://ax4m3.github.io/OniXpress/).
+1. Rendez-vous sur [Errata en ligne](https://ax4m3.github.io/Errata/).
 2. Remplissez les métadonnées de votre livre. Les champs obligatoires pour le bon traitement par les réseaux de distribution sont marqués d'un **astérisque rouge (`*`)**.
 3. Vérifiez la validité de vos données grâce à l'aperçu dynamique.
 4. Cliquez sur **Télécharger le .xml** ou **Copier le XML**.
@@ -45,7 +45,7 @@ Il élimine la complexité de la manipulation directe des fichiers XML structur�
 
 ## À propos et engagement
 
-OniXpress a été développé bénévolement par un étudiant en *Métiers du Livre et du Patrimoine* afin de libérer les petites structures éditoriales des contraintes techniques de formats parfois complexes, rendant l'écosystème du livre plus accessible.
+Errata a été développé bénévolement par un étudiant en *Métiers du Livre et du Patrimoine* afin de libérer les petites structures éditoriales des contraintes techniques de formats parfois complexes, rendant l'écosystème du livre plus accessible.
 
 ### Me retrouver et soutenir le projet
 Si l'outil vous fait gagner du temps dans votre quotidien d'éditeur, vous pouvez soutenir mon travail :
@@ -61,7 +61,7 @@ Les contributions sont bienvenues !
 * **Code de conduite :** Merci de respecter notre [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 
 ## Citer l'outil
-Si vous utilisez OniXpress dans le cadre de vos travaux ou de vos projets, vous pouvez nous citer via le fichier [CITATION.cff](CITATION.cff) présent à la racine du dépôt.
+Si vous utilisez Errata dans le cadre de vos travaux ou de vos projets, vous pouvez nous citer via le fichier [CITATION.cff](CITATION.cff) présent à la racine du dépôt.
 
 ## Licence
-Ce projet est un logiciel libre distribuable sous les termes de la licence **GPL-3.0**. Consultez le fichier [LICENSE](https://github.com/Ax4M3/OniXpress/blob/main/LICENSE) ou la page [license.html](https://ax4m3.github.io/OniXpress/pages/license.html) dédiée pour obtenir l'intégralité du texte juridique.
+Ce projet est un logiciel libre distribuable sous les termes de la licence **GPL-3.0**. Consultez le fichier [LICENSE](https://github.com/Ax4M3/Errata/blob/main/LICENSE) ou la page [license.html](https://ax4m3.github.io/Errata/pages/license.html) dédiée pour obtenir l'intégralité du texte juridique.
