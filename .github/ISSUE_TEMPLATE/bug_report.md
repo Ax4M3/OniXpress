@@ -10,7 +10,7 @@ assignees: ''
 Décrivez brièvement ce qui ne fonctionne pas.
 
 ## Étapes pour reproduire
-1. Allez sur OniXpress.
+1. Allez sur Errata.
 2. Remplissez les champs avec : ...
 3. Cliquez sur "Générer / Télécharger".
 4. Erreur constatée : ...
