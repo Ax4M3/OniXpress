@@ -1,11 +1,21 @@
-cff-version: 1.3.0
-message: "Si vous utilisez cet outil dans vos travaux ou pour vos projets éditoriaux, merci de le citer comme suit."
+cff-version: 1.2.0
+message: "Si vous utilisez cet outil, merci de le citer comme suit :"
+title: Errata
+abstract: "Outil indépendant de génération de fichiers XML au format ONIX pour le secteur de l'édition."
 authors:
   - family-names: "Ax4M3"
-    given-names: "(vide)"
-    orcid: "https://orcid.org/XXXX-XXXX-XXXX-XXXX" # Optionnel, à venir
-title: "Errata"
-version: 1.6.2
-doi: # Pas de DOI pour l'instant
-date-released: 2026-07-15
-url: "https://ax4m3.github.io/Errata/"
+    given-names: ""
+contact:
+  - family-names: "Ax4M3"
+    given-names: ""
+    email: "zhd8ttclv@mozmail.com"
+license: GPL-3.0
+repository-code: "https://github.com/Ax4M3/Errata"
+version: 1.9.0
+date-released: 2026-07-16
+type: software
+keywords:
+  - ONIX
+  - Édition
+  - XML
+  - Flux de métadonnées

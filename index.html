@@ -33,7 +33,7 @@
       <strong>Errata v1.9.0 — à lire avant usage professionnel :</strong> ce générateur produit un squelette ONIX 3.0 structurellement correct pour un cas simple. Il ne fait pas de validation XSD complète et la liste de classification ci-dessous est volontairement réduite. Vérifiez les codes auprès des listes officielles EDItEUR avant envoi à un distributeur.
     </div>
     <div class="box">
-      <strong>Une version <em>beta</em></strong> en cours de production, elle apporte une version <strong>plus professionnelle</strong>, elle n'est pas encore parfaitement fonctionnelle mais si vous souhaitez voir et utiliser cette version cliquez ici : <a href="admin/betatestindex.html" target="_blank" rel="noopener noreferrer">Version <em>Beta</em> 2.0.0</a>
+      <strong>Vérification :</strong> Vous pouvez vérifier le fichier XML généré grâce à l'outil <a href="https://www.xmlvalidation.com/" target="_blank" rel="noopener noreferrer">XLM validation</a>
     </div>
   </div>
   <main class="layout">
@@ -58,8 +58,9 @@
         </div>
       </fieldset>
       <fieldset>
-        <legend>Contributeurs</legend>
+        <legend>Contributeur.ice.s</legend>
         <div id="contributors"></div>
+        <div style="font-size: .75rem; color: var(--text-muted); margin-top: 4px;"><em> > Pour un Pseudo ou un ouvrage anonyme, mettez simplement le pseudo ou "Anonyme" dans le champs "Nom".</em></div>
         <button type="button" class="btn-ghost" id="addContributor" style="margin-top:14px;">+ Ajouter un contributeur</button>
       </fieldset>
       <fieldset>
@@ -388,8 +389,8 @@
   const sessionRef = Date.now();
   
   const contributorRoles = [
-    { code: 'A01', label: 'Auteur' },
-    { code: 'A18', label: 'Co-auteur' },
+    { code: 'A01', label: 'Auteur.ice' },
+    { code: 'A18', label: 'Co-auteur.ice' },
     { code: 'A02', label: 'Avec la participation de' },
     { code: 'A03', label: 'Compilé par' },
     { code: 'A04', label: 'Sélectionné par' },
@@ -404,11 +405,11 @@
     { code: 'B06', label: 'Traduit par (Traducteur)' },
     { code: 'B01', label: 'Sous la direction de / Édité par' },
     { code: 'B02', label: 'Édité par' },
-    { code: 'B03', label: 'Conseiller éditorial' },
-    { code: 'B04', label: 'Rédacteur en chef' },
+    { code: 'B03', label: 'Conseiller.ère éditorial' },
+    { code: 'B04', label: 'Rédacteur-ice en chef' },
     { code: 'B09', label: 'Collection dirigée par' },
-    { code: 'B20', label: 'Directeur de collection' },
-    { code: 'B17', label: 'Collaborateur' }
+    { code: 'B20', label: 'Directeur.ice de collection' },
+    { code: 'B17', label: 'Collaborateur.ice' }
   ];
 
   const languagesList = [
@@ -442,7 +443,18 @@
   const previewMeta = document.getElementById('previewMeta');
 
   function escapeXml(str){
-    return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+    return String(str || '')
+      .replace(/&/g,'&amp;')
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;')
+      .replace(/'/g,'&apos;')
+      .replace(/\s«/g, '«')
+      .replace(/»\s/g, '»')
+      .replace(/«/g, '«')
+      .replace(/»/g, '»')
+      .replace(/•/g, '-')
+      .replace(/\u00A0/g, ' ');
   }
   function escapeAttr(str) {
     return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
@@ -669,7 +681,7 @@
         els.availability.value = getTextContent(availabilityNode) || '20';
         const priceNode = xmlDoc.querySelector('PriceAmount');
         els.price.value = getTextContent(priceNode);
-        const supportingResource = xmlDoc.querySelector('SupportingResource[ResourceContentType="01"]');
+        const supportingResource = getNodeWithChildValue(xmlDoc, 'ResourceContentType', '01');
         const resourceLink = supportingResource ? supportingResource.querySelector('ResourceLink') : null;
         els.coverUrl.value = getTextContent(resourceLink) || '';
         const currencyCodeNode = xmlDoc.querySelector('CurrencyCode');
@@ -704,6 +716,20 @@
         } else {
           els.pubdate.value = '';
         }
+
+        const productIdentifiers = xmlDoc.querySelectorAll('ProductIdentifier');
+        let isbnValue = '';
+        console.log('ProductIdentifiers trouvés :', productIdentifiers.length);
+        productIdentifiers.forEach(pid => {
+          const idType = pid.querySelector('ProductIDType');
+          const idValue = pid.querySelector('IDValue');
+          console.log('  Type :', idType ? idType.textContent.trim() : 'absent', '— Valeur :', idValue ? idValue.textContent.trim() : 'absente');
+          if (idType && (idType.textContent.trim() === '15' || idType.textContent.trim() === '03') && idValue) {
+            isbnValue = idValue.textContent.trim();
+          }
+        });
+        els.isbn.value = isbnValue;
+
         const xmlContribs = xmlDoc.querySelectorAll('Contributor');
         if (xmlContribs.length > 0) {
           contributors = [];
@@ -807,7 +833,7 @@
 
   function buildXml(state){
     const now = new Date();
-    const sentDateTime = now.toISOString().replace(/[-:]/g,'').split('.')[0];
+    const sentDateTime = now.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '').replace('T', '').slice(0, 14) + 'Z';
     const recordRef = state.isbnClean ? `REF-${state.isbnClean}` : `REF-${sessionRef}`;
     const formattedPrice = parseFloat(state.price) ? parseFloat(state.price).toFixed(2) : '0.00';
     const taxDetails = getTaxDetails(state.currency, state.productForm);
@@ -820,25 +846,23 @@
 
     const subjectXml = state.subject ? `      <Subject><SubjectSchemeIdentifier>93</SubjectSchemeIdentifier><SubjectCode>${escapeXml(state.subject)}</SubjectCode></Subject>\n` : '';
     const keywordsXml = state.keywords.trim() ? `      <Subject><SubjectSchemeIdentifier>20</SubjectSchemeIdentifier><SubjectHeadingText>${escapeXml(state.keywords.trim())}</SubjectHeadingText></Subject>\n` : '';
-    const publishingDateXml = state.pubdate ? `      <PublishingDate><PublishingDateRole>01</PublishingDateRole><Date dateformat="14">${ymd(state.pubdate)}\n` : '';
+    const publishingDateXml = state.pubdate ? `      <PublishingDate><PublishingDateRole>01</PublishingDateRole><Date dateformat="01">${ymd(state.pubdate)}</Date></PublishingDate>\n` : '';
 
     return `<?xml version="1.0" encoding="UTF-8"?>
 <ONIXMessage xmlns="http://ns.editeur.org/onix/3.0/reference" release="3.0">
   <Header>
     <FromCompany>Errata</FromCompany>
-    <FromPerson>User</FromPerson>
     <SentDateTime>${sentDateTime}</SentDateTime>
-    <MessageNote>Generated by Errata - https://github.com/Ax4M3/Errata</MessageNote>
   </Header>
   <Product recordReference="${recordRef}">
     <RecordReference>${recordRef}</RecordReference>
-    <NotificationType>03</NotificationType>
+    <NotificationType>02</NotificationType>
     <ProductIdentifier>
       <ProductIDType>15</ProductIDType>
       <IDValue>${state.isbnClean || '0000000000000'}</IDValue>
     </ProductIdentifier>
     <DescriptiveDetail>
-      <ProductComposition>00</ProductComposition>
+      <ProductComposition>10</ProductComposition>
       <ProductForm>${state.productForm}</ProductForm>
       ${state.height ? `<Measure type="01" measurement="${state.height}" unitcode="mm"/>` : ''}
       ${state.width ? `<Measure type="02" measurement="${state.width}" unitcode="mm"/>` : ''}
@@ -882,7 +906,7 @@
           <SupplierName>${escapeXml(state.publisher)}</SupplierName>
           <ProductAvailability>${state.availability}</ProductAvailability>
           <Stock>
-            <StockQuantity>9999</StockQuantity>
+            <StockQuantityCode>00</StockQuantityCode>
           </Stock>
           <Price>
             <PriceTypeCode>01</PriceTypeCode>
@@ -923,7 +947,7 @@
       { id:'publisher', done: state.publisher.trim().length > 0, label:'Éditeur saisi' },
       { id:'pubdate', done: state.pubdate.length > 0, label:'Date de parution' },
       { id:'price', done: parseFloat(state.price) > 0, label:'Prix > 0' },
-      { id:'contrib', done: contributors.some(c => c.lastname.trim().length > 0), label:'Au moins un auteur' },
+      { id:'contrib', done: contributors.some(c => c.lastname.trim().length > 0), label:'Au moins un auteur.ice' },
       { id:'language', done: state.language.length > 0, label:'Langue choisie' }
     ];
     
@@ -950,10 +974,13 @@
       const a = document.createElement('a');
       a.href = url;
       a.download = `onix_${state.isbnClean || 'fiche'}_${new Date().toISOString().slice(0,10)}.xml`;
+      a.style.display = 'none';
       document.body.appendChild(a);
       a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      setTimeout(() => {
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }, 100);
     };
     
     copyBtn.onclick = async () => {
