@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ONIXMessage xmlns="http://ns.editeur.org/onix/3.0/reference" release="3.0">
+  <Header>
+    <FromCompany>Errata</FromCompany>
+    <SentDateTime>20260716195047Z</SentDateTime>
+  </Header>
+  <Product recordReference="REF-9782358723138">
+    <RecordReference>REF-9782358723138</RecordReference>
+    <NotificationType>02</NotificationType>
+    <ProductIdentifier>
+      <ProductIDType>15</ProductIDType>
+      <IDValue>9782358723138</IDValue>
+    </ProductIdentifier>
+    <DescriptiveDetail>
+      <ProductComposition>10</ProductComposition>
+      <ProductForm>BC</ProductForm>
+      
+      
+      
+      <Language><LanguageRole>01</LanguageRole><LanguageCode>fre</LanguageCode></Language>
+      <TitleDetail>
+        <TitleType>01</TitleType>
+        <TitleElement>
+          <TitleElementLevel>01</TitleElementLevel>
+          <TitleText>« État de droit », ordre bourgeois</TitleText>
+          <Subtitle>Renouer avec la défense politique</Subtitle>
+        </TitleElement>
+      </TitleDetail>
+            <Contributor>
+        <SequenceNumber>1</SequenceNumber>
+        <ContributorRole>A01</ContributorRole>
+        <NamesBeforeKey>Elsa</NamesBeforeKey>
+        <KeyNames>Marcel</KeyNames>
+      </Contributor>
+      
+    </DescriptiveDetail>
+    <CollateralDetail>
+      <TextContent>
+        <TextTypeCode>03</TextTypeCode>
+        <ContentAudience>00</ContentAudience>
+        <Text>Face aux gouvernements liberticides, aux violences policières, à la réaction coloniale en Kanaky ou au patronat radicalisé, plus il devient nécessaire de se défendre en justice, plus il est difficile de le faire. C’est l’expérience que font au quotidien les avocat-es des classes opprimées : quand l’ordre social et la légitimité du pouvoir sont mis en cause, garde des Sceaux, parquet et juges font bloc derrière le régime, et les principes libéraux de« l’État de droit »ne pèsent plus bien lourd. Pour conjurer l’impuissance, Elsa Marcel invite à renouer avec la défense politique déployée par les avocat-es s des combattant-es du FLN pendant la guerre d’Algérie, par les grandes figures du mouvement ouvrier comme Marx ou Rosa Luxemburg lors de leurs procès, par les animateurs du Tribunal Russell contre les crimes américains au Vietnam ou encore par les juristes du Mouvement d’action judiciaire dans les années 1970 – autant de pistes pour repenser aujourd’hui les pratiques de la profession et ses rapports aux luttes.
+
+Une analyse lucide de l’arène judiciaire sous état d’urgence pour servir au combat dans les tribunaux comme en dehors.</Text>
+      </TextContent>
+      <SupportingResource>
+        <ResourceContentType>01</ResourceContentType>
+        <ResourceMode>03</ResourceMode>
+        <ResourceLink>https://lafabrique.fr/wp-content/uploads/2025/11/FAB_13x20_MARCEL_Ordre-665x1024.jpg</ResourceLink>
+      </SupportingResource>
+    </CollateralDetail>
+    <PublishingDetail>
+      <Imprint>
+        <ImprintName>La fabrique éditions</ImprintName>
+        <ImprintIdentifier>
+          <ImprintIDType>01</ImprintIDType>
+          <IDValue>La fabrique éditions</IDValue>
+        </ImprintIdentifier>
+      </Imprint>
+      
+      <Publisher>
+        <PublishingRole>01</PublishingRole>
+        <PublisherName>La fabrique éditions</PublisherName>
+      </Publisher>
+            <PublishingDate><PublishingDateRole>01</PublishingDateRole><Date dateformat="01">20260320</Date></PublishingDate>
+
+    </PublishingDetail>
+    <ProductSupply>
+      <Market>
+        <MarketCountry>FR</MarketCountry>
+        <SupplyDetail>
+          <SupplierName>La fabrique éditions</SupplierName>
+          <ProductAvailability>20</ProductAvailability>
+          <Stock>
+            <StockQuantityCode>00</StockQuantityCode>
+          </Stock>
+          <Price>
+            <PriceTypeCode>01</PriceTypeCode>
+            <PriceAmount>14.00</PriceAmount>
+            <CurrencyCode>EUR</CurrencyCode>
+            <CountriesIncluded>FR</CountriesIncluded>
+            <Tax>
+              <TaxType>01</TaxType>
+              <TaxRateCode>VAT</TaxRateCode>
+              <TaxRate>5.5</TaxRate>
+              <TaxableAmount>13.270142</TaxableAmount>
+              <TaxAmount>0.729858</TaxAmount>
+            </Tax>
+          </Price>
+        </SupplyDetail>
+      </Market>
+    </ProductSupply>
+  </Product>
+</ONIXMessage>

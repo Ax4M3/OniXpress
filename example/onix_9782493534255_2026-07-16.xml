@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ONIXMessage xmlns="http://ns.editeur.org/onix/3.0/reference" release="3.0">
+  <Header>
+    <FromCompany>Errata</FromCompany>
+    <SentDateTime>20260716203207Z</SentDateTime>
+  </Header>
+  <Product recordReference="REF-9782493534255">
+    <RecordReference>REF-9782493534255</RecordReference>
+    <NotificationType>02</NotificationType>
+    <ProductIdentifier>
+      <ProductIDType>15</ProductIDType>
+      <IDValue>9782493534255</IDValue>
+    </ProductIdentifier>
+    <DescriptiveDetail>
+      <ProductComposition>10</ProductComposition>
+      <ProductForm>BC</ProductForm>
+      <Measure type="01" measurement="205" unitcode="mm"/>
+      <Measure type="02" measurement="140" unitcode="mm"/>
+      <Measure type="08" measurement="185" unitcode="gr"/>
+      <Language><LanguageRole>01</LanguageRole><LanguageCode>fre</LanguageCode></Language>
+      <TitleDetail>
+        <TitleType>01</TitleType>
+        <TitleElement>
+          <TitleElementLevel>01</TitleElementLevel>
+          <TitleText>Maisons d’enfance</TitleText>
+          
+        </TitleElement>
+      </TitleDetail>
+            <Contributor>
+        <SequenceNumber>1</SequenceNumber>
+        <ContributorRole>A01</ContributorRole>
+        <KeyNames>auror·404</KeyNames>
+      </Contributor>
+      <Contributor>
+        <SequenceNumber>2</SequenceNumber>
+        <ContributorRole>A11</ContributorRole>
+        <NamesBeforeKey>Fanny</NamesBeforeKey>
+        <KeyNames>Fallart</KeyNames>
+      </Contributor>
+      <Contributor>
+        <SequenceNumber>3</SequenceNumber>
+        <ContributorRole>A11</ContributorRole>
+        <NamesBeforeKey>Emma</NamesBeforeKey>
+        <KeyNames>Fanget</KeyNames>
+      </Contributor>
+      <Contributor>
+        <SequenceNumber>4</SequenceNumber>
+        <ContributorRole>A12</ContributorRole>
+        <NamesBeforeKey>Rob</NamesBeforeKey>
+        <KeyNames>Cœur</KeyNames>
+      </Contributor>
+      
+    </DescriptiveDetail>
+    <CollateralDetail>
+      <TextContent>
+        <TextTypeCode>03</TextTypeCode>
+        <ContentAudience>00</ContentAudience>
+        <Text>Samaël retourne dans le bassin minier du Pas-de-Calais vider la maison qui l’a vu grandir. Alors assailli par les souvenirs des violences intrafamiliales que ces murs ont étouffées, il tombe amoureux d&apos;un chercheur renommé. Lorsque cet universitaire l’invite dans sa résidence secondaire, le lieu à priori paradisiaque se referme sur Samaël de toute sa lourdeur bourgeoise. Brassant les notions d’héritage, le récit questionne la difficulté de faire famille autrement. Samaël peut-il se défaire des dynamiques d’emprise qui irriguent sa nouvelle relation ? Peut-il s’enfuir de la maison d’enfance ?</Text>
+      </TextContent>
+      <SupportingResource>
+        <ResourceContentType>01</ResourceContentType>
+        <ResourceMode>03</ResourceMode>
+        <ResourceLink>https://www.editionsburnaout.fr/publication/livre/MDE_visu.png</ResourceLink>
+      </SupportingResource>
+    </CollateralDetail>
+    <PublishingDetail>
+      <Imprint>
+        <ImprintName>Burn Aout</ImprintName>
+        
+      </Imprint>
+      <Collection>
+        <CollectionType>10</CollectionType>
+        <TitleDetail>
+          <TitleType>01</TitleType>
+          <TitleElement>
+            <TitleElementLevel>01</TitleElementLevel>
+            <TitleText>39›5</TitleText>
+          </TitleElement>
+        </TitleDetail>
+      </Collection>
+      <Publisher>
+        <PublishingRole>01</PublishingRole>
+        <PublisherName>Burn Aout</PublisherName>
+      </Publisher>
+            <PublishingDate><PublishingDateRole>01</PublishingDateRole><Date dateformat="01">20250917</Date></PublishingDate>
+
+    </PublishingDetail>
+    <ProductSupply>
+      <Market>
+        <MarketCountry>FR</MarketCountry>
+        <SupplyDetail>
+          <SupplierName>Burn Aout</SupplierName>
+          <ProductAvailability></ProductAvailability>
+          <Stock>
+            <StockQuantityCode>00</StockQuantityCode>
+          </Stock>
+          <Price>
+            <PriceTypeCode>01</PriceTypeCode>
+            <PriceAmount>15.00</PriceAmount>
+            <CurrencyCode>EUR</CurrencyCode>
+            <CountriesIncluded>FR</CountriesIncluded>
+            <Tax>
+              <TaxType>01</TaxType>
+              <TaxRateCode>VAT</TaxRateCode>
+              <TaxRate>5.5</TaxRate>
+              <TaxableAmount>14.218009</TaxableAmount>
+              <TaxAmount>0.781991</TaxAmount>
+            </Tax>
+          </Price>
+        </SupplyDetail>
+      </Market>
+    </ProductSupply>
+  </Product>
+</ONIXMessage>
