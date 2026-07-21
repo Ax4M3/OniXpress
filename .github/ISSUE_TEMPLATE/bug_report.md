@@ -9,7 +9,7 @@ labels: bug
 Décrivez brièvement ce qui ne fonctionne pas.
 
 ## Étapes pour reproduire
-1. Allez sur Errata.
+1. Allez sur KartoLibr.
 2. Remplissez les champs avec : ...
 3. Cliquez sur "Générer / Télécharger".
 4. Erreur constatée : ...
