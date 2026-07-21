@@ -1,6 +1,6 @@
-# Guide de contribution à OniXpress
+# Guide de contribution à KartoLibr
 
-Un grand merci pour l'intérêt que vous portez à **OniXpress** ! Que vous soyez développeur, éditrice, éditeur ou spécialiste des métadonnées du livre, votre aide est précieuse pour faire vivre la bibliodiversité et l'édition indépendante.
+Un grand merci pour l'intérêt que vous portez à **KartoLibr** ! Que vous soyez développeur, éditrice, éditeur ou spécialiste des métadonnées du livre, votre aide est précieuse pour faire vivre la bibliodiversité et l'édition indépendante.
 
 Ce document rassemble quelques lignes directrices simples pour faciliter vos contributions.
 
@@ -18,12 +18,12 @@ Il y a plein de façons de participer au projet, même sans coder :
 
 ## Développer localement
 
-L'un des grands avantages d'OniXpress est son architecture **100 % statique**. Vous n'avez pas besoin d'installer Node.js, Docker ou des dépendances complexes.
+L'un des grands avantages d'KartoLibr est son architecture **100 % statique**. Vous n'avez pas besoin d'installer Node.js, Docker ou des dépendances complexes.
 
 1. **Forkez** le dépôt sur votre compte GitHub.
 2. **Clonez** votre fork localement :
    ```bash
-   git clone https://github.com/Ax4M3/OniXpress.git
+   git clone https://github.com/Ax4M3/KartoLibr.git
 3. Ouvrez simplement le fichier index.html dans le navigateur de votre choix pour voir l'application tourner en direct.
 4. Modifiez le code avec votre éditeur de texte favori.
 

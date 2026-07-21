@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Errata — Générateur simplifié ONIX 3.0</title>
+<title>KartoLibr — Générateur simplifié ONIX 3.0</title>
 <meta name="description" content="Générez une fiche ONIX 3.0 structurellement correcte à partir d'un formulaire simple, entièrement dans votre navigateur. Aucune donnée n'est envoyée à un serveur.">
-<meta property="og:title" content="Errata — Générateur ONIX 3.0">
+<meta property="og:title" content="KartoLibr — Générateur ONIX 3.0">
 <meta property="og:description" content="Remplissez une fiche, obtenez un fichier ONIX 3.0 valide côté structure, prêt à envoyer à un distributeur.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231A1A1A'/%3E%3Ctext x='50' y='68' text-anchor='middle' fill='%23D4A017' font-family='serif'%3E%3Ctspan font-size='58'%3EE%3C/tspan%3E%3Ctspan font-size='44'%3Ea%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="./assets/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -17,20 +17,19 @@
 <body>
   <header class="top">
     <nav class="top-nav">
-      <a href="pages/about.html">C'est quoi l'ONIX ?</a>
+      <a href="pages/documentation.html">Documentation et Ressources</a>
       <span> • </span>
-      <a href="pages/project.html">Le Projet et le mode d'emploi</a>
-      <span> • </span>
-      <a href="pages/about-me.html">A propos de l'auteur</a>
+      <a href="https://github.com/Ax4M3/KartoLibr">Dépôt du code</a>
     </nav>
-    <p class="eyebrow">Errata - Générateur ONIX 3.0 — v1.9.0</p>
+    <p class="eyebrow">KartoLibr - Générateur ONIX 3.0 — v2.0.0</p>
     <h1 class="title-logo">
-      <span class="gold">E</span>rrat<span class="gold">a</span></h1>
+      <img src="assets/icon.png" alt="KartoLibr" class="logo" style="height: 45px; width: auto; vertical-align: middle;">
+      <span class="gold">K</span>arto<span class="gold">L</span>ibr</h1>
     <p>Remplissez une fiche, téléversez ou glissez-déposez un XML existant. Tout reste dans votre navigateur.</p>
   </header>
   <div class="disclaimer">
     <div class="box">
-      <strong>Errata v1.9.0 — à lire avant usage professionnel :</strong> ce générateur produit un squelette ONIX 3.0 structurellement correct pour un cas simple. Il ne fait pas de validation XSD complète et la liste de classification ci-dessous est volontairement réduite. Vérifiez les codes auprès des listes officielles EDItEUR avant envoi à un distributeur.
+      <strong>KartoLibr v2.0.0 — à lire avant usage professionnel :</strong> ce générateur produit un squelette ONIX 3.0 structurellement correct pour un cas simple. Il ne fait pas de validation XSD complète et la liste de classification ci-dessous est volontairement réduite. Vérifiez les codes auprès des listes officielles EDItEUR avant envoi à un distributeur.
     </div>
     <div class="box">
       <strong>Vérification :</strong> Vous pouvez vérifier le fichier XML généré grâce à l'outil <a href="https://www.xmlvalidation.com/" target="_blank" rel="noopener noreferrer">XLM validation</a>
@@ -86,7 +85,7 @@
         </div>
         <div class="field">
           <label for="keywords">Mots-clés</label>
-          <input type="text" id="keywords" placeholder="séparés par des virgules">
+          <input type="text" id="keywords" placeholder="Séparés par des virgules">
         </div>
         <div class="field">
           <label for="language">Langue du texte <span class="req">*</span></label>
@@ -245,6 +244,7 @@
               <option value="SFH">Jeux de société</option>
             </optgroup>
           </select>
+          <div style="font-size: .75rem; color: var(--text-muted); margin-top: 4px;">Pour plus d'aide pour savoir quelle catégorie utiliser, veuillez consulter le <a href="https://ns.editeur.org/thema/fr" target="_blank" rel="noopener noreferrer">guide officiel d'EDItEUR</a>.</div>
         </div>
       </fieldset>
       <fieldset>
@@ -360,15 +360,14 @@
   </main>
 
   <footer class="note">
-    <div><strong>Errata (ex-<em>OniXPress</em>) - Version 1.9.0</strong></div>
+    <img src="assets/icon.png" alt="Bureaucrafree" class="logo" style="height: 40px; width: auto; vertical-align: middle;">
+    <div><strong>KartoLibr (ex-<em>Errata</em> et ex-<em>OniXPress</em>) - Version 2.0.0</strong></div>
     <div>Fiche sauvegardée automatiquement dans votre navigateur (localStorage) — fermez l'onglet sans crainte, vous la retrouverez en revenant ici.</div>
-    <div><strong>Errata</strong> est un outil open source, gratuit et respectueux de la vie privée. Aucune donnée saisie ne quitte jamais votre ordinateur.</div>
+    <div><strong>KartoLibr</strong> est un outil open source, gratuit et respectueux de la vie privée. Aucune donnée saisie ne quitte jamais votre ordinateur.</div>
     <div>Normes officielles basées sur les spécifications EDItEUR ONIX 3.0.</div>
     <div class="footer-links">
       <a href="pages/license.html" target="_blank" rel="noopener noreferrer">Licence GNU GPL 3.0</a>
       <div>
-        <a href="https://github.com/Ax4M3/Errata" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a>
-        <span> • </span>
         <a href="https://piaille.fr/@Axm" target="_blank" rel="noopener noreferrer">Mastodon</a>
         <span> • </span>
         <a href="https://liberapay.com/AxM3/donate" target="_blank" rel="noopener noreferrer">M'offrir du café</a>
@@ -378,7 +377,7 @@
   
 <script>
 (function(){
-  const STORAGE_KEY = 'errata-fiche';
+  const STORAGE_KEY = 'kartolibr-fiche';
   const STORAGE_SCHEMA_VERSION = 3;
   const fields = ['isbn','title','subtitle','summary','keywords','subject',
                    'publisher','imprint','collection','pubdate','productForm','price','currency',
@@ -851,7 +850,7 @@
     return `<?xml version="1.0" encoding="UTF-8"?>
 <ONIXMessage xmlns="http://ns.editeur.org/onix/3.0/reference" release="3.0">
   <Header>
-    <FromCompany>Errata</FromCompany>
+    <FromCompany>KartoLibr</FromCompany>
     <SentDateTime>${sentDateTime}</SentDateTime>
   </Header>
   <Product recordReference="${recordRef}">

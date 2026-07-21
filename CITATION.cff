@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "Si vous utilisez cet outil, merci de le citer comme suit :"
-title: Errata
+title: KartoLibr
 abstract: "Outil indépendant de génération de fichiers XML au format ONIX pour le secteur de l'édition."
 authors:
   - family-names: "Ax4M3"
@@ -10,7 +10,7 @@ contact:
     given-names: ""
     email: "zhd8ttclv@mozmail.com"
 license: GPL-3.0
-repository-code: "https://github.com/Ax4M3/Errata"
+repository-code: "https://github.com/Ax4M3/KartoLibr"
 version: 1.9.0
 date-released: 2026-07-16
 type: software
