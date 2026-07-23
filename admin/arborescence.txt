@@ -1,0 +1,37 @@
+# Arborescence de projet KartoLibr
+
+KartoLibr/
+├── index.html
+├── style.css
+├── pages/
+│   ├── about.html
+│   ├── about-me.html
+│   ├── documentation.html
+│   ├── license.html
+│   ├── project.html
+│   ├── thema.html
+│   ├── stylepages.css
+│   ├── ONIX-Livres-complet_issue73.pdf
+│   └── easteregg/
+│       └── lobster.txt
+├── assets/
+│   ├── bannkartolibr.png
+│   ├── icon.png
+│   ├── logocarre.png
+│   ├── page-1.9.0.png
+│   └── Archives - Errata/
+│       ├── bann-errata.png
+│       └── logo.svg
+├── data/
+│   ├── contributor_roles.js
+│   ├── languages.js
+│   └── thema_tree.js
+├── example/
+│   └── # exemples de fiches XML ONIX générées avec KartoLibr
+├── admin/
+│   └── arborescence.txt
+├── CITATION.cff
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE
+└── README.md
